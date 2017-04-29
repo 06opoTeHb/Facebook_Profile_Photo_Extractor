@@ -1,11 +1,15 @@
-#import tkinter
+from tkinter import *
+#print("1. the imported file is", tkinter.__file__)
+
 from PIL import ImageTk,Image
 import PIL.Image
 import requests
 from bs4 import BeautifulSoup
 import urllib.request
 import re
-from _tkinter import *
+#from _tkinter import *
+#print("2. the imported file is", _tkinter.__file__)
+
 
 def displayText():
     """ Display the Entry text value. """
@@ -16,7 +20,7 @@ def displayText():
     # # #url = "D:\MY PROJECTS\Hoverzoom Extension for facebook locked profile pics\myhtml.html"
     r = requests.get(url)
     # # soup = BeautifulSoup("myhtml.html","html.parser")
-    soup = BeautifulSoup(r.content,"html.parser")
+    soup = BeautifulSoup(r.content.decode('utf-8'),"html.parser")
     # # #print (soup.prettify().encode("utf-8"))
     # # print("-----------------------")
     # # print("-----------------------")
@@ -74,10 +78,10 @@ def displayText():
     #print(links)
     #print (soup.encode("utf-8"))
 
-      # url = https://www.facebook.com/ankita.188
+      # url = https://www.facebook.com/simplyabhinav
 
-
-    window = tkinter.Toplevel()
+    
+    window = Tk()
     window.title("Output")
     window.geometry("960x960")
     window.configure(background='grey')
@@ -88,7 +92,7 @@ def displayText():
     img1 = ImageTk.PhotoImage(PIL.Image.open(path))
 
     #The Label widget is a standard tkinter widget used to display a text or image on the screen.
-    panel = tkinter.Label(window, image = img1)
+    panel = Tk.Label(window, image = img1)
 
     #The Pack geometry manager packs widgets in rows or columns.
     panel.pack(side = "bottom", fill = "both", expand = "yes")
@@ -126,9 +130,6 @@ if __name__ == "__main__":
     button.pack() 
     
     root.mainloop()
-
-
-
 
 
 
